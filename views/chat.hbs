@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div id="newMessage" class="col-lg-8">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="list-group">
+                <button type="button" style="width: 100%; text-align:left" class="list-group-item active">
+                    Danh sách chat
+                </button>
+                <div style="height: {{remHeight}}rem; overflow: auto">
+                    {{#each Users}}
+                    <li class="list-group-item">
+                        <input id={{username}} type="button" style="width: 100%; text-align:left"
+                            onclick="chatNow('{{_id}}')" class="list-group-item buttonUser" value="{{name}}">
+                    </li>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="panel panel-primary">
+                <div id="chatReceiver" class="panel-heading">
+                    Chat
+                </div>
+                <div hidden>
+                    <input type="text" id="receiverID" name="receiverID" value="1">
+                </div>
+                <div style="height: 40rem; overflow: auto" id="messageBody">
+                    <ul id="chatbox">
+                    </ul>
+                </div>
+                <div class="panel-footer clearfix">
+                    <textarea id="m" name="m" onkeypress="onTestChange();" class="form-control" rows="3"></textarea>
+                    <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
+                        <button class="btn btn-warning btn-lg btn-block" id="btn-chat"
+                            onclick="sendMessage()">Send</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="javascript/socket.js"></script>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+        <form action="/register" method='POST'>
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input class="form-control" name="usernameRegister">
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <input type="password" class="form-control" name="passwordRegister1">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword2">Nhập lại mật khẩu</label>
+                <input type="password" class="form-control" name="passwordRegister2">
+            </div>
+            <div class="form-group">
+                <label>Tên</label>
+                <input class="form-control" name="nameRegister">
+            </div>
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
+        </form>
+        {{#if checkUsernameFailed}}
+        <hr class="line">
+        <div class="alert alert-danger">
+            <span>Username đã được sử dụng</span>
+        </div>
+        {{/if}}
+        {{#if checkPasswordFailed}}
+        <hr class="line">
+        <div class="alert alert-danger">
+            <span>Password không khớp nhau</span>
+        </div>
+        {{/if}}
+    </div>
+</div>
